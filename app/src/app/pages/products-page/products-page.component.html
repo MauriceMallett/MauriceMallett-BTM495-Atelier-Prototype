@@ -1,0 +1,65 @@
+<section style="padding: 5%">
+  <h1>Products</h1>
+
+  <form class="inputs1">
+    <mat-form-field appearance="outline" style="margin-right: 10px">
+      <mat-label>Varnish</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-right: 10px">
+      <mat-label>Color</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="margin-right: 10px">
+      <mat-label>Type</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="search-btn">Search</button>
+  </form>
+
+  <mat-toolbar style="font-size: 14px; border-radius: 10px; height: 40px">
+    <button mat-icon-button class="example-icon">
+      <mat-icon style="font-size: 20px">history</mat-icon>
+    </button>
+    <span>Estimate History</span>
+    <span class="spacer"></span>
+    <label>viewing 1 to 3 of 3</label>
+  </mat-toolbar>
+  <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        <b>{{ element.name }}</b>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="supplier">
+      <th mat-header-cell *matHeaderCellDef>Supplier</th>
+      <td mat-cell *matCellDef="let element">{{ element.supplier }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price / sqft</th>
+      <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          style="color:{{
+            element.status === 'In Stock' ? 'green' : 'red'
+          }}; margin-top: 15px; font-size: 12px"
+          >circle</mat-icon
+        >{{ element.status }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

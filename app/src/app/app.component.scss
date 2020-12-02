@@ -1,0 +1,26 @@
+.drawer {
+  width: 270px;
+  padding: 50px 0px;
+}
+
+.drawer-content {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.drawer-btn {
+  display: block;
+  width: 230px;
+  text-align: left;
+  padding: 5px 20px;
+  border-left: 3px solid #fff;
+  border-radius: 0;
+
+  &.active {
+    border-left: 3px solid blue;
+  }
+
+  mat-icon {
+    margin-right: 20px;
+  }
+}

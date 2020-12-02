@@ -1,0 +1,48 @@
+<app-navbar *ngIf="router.url != '/login'"></app-navbar>
+
+<mat-drawer-container>
+  <mat-drawer mode="side" class="drawer" opened *ngIf="router.url != '/login'">
+    <button mat-button class="drawer-btn">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </button>
+    <mat-expansion-panel style="width: 250px; box-shadow: none">
+      <mat-expansion-panel-header style="padding: 0px 20px 0px 0px">
+        <button
+          mat-button
+          class="drawer-btn"
+          routerLinkActive="active"
+          routerLink="/estimates"
+        >
+          <mat-icon>groups</mat-icon> Estimates
+        </button>
+      </mat-expansion-panel-header>
+      <button
+        mat-button
+        class="drawer-btn"
+        routerLinkActive="active"
+        routerLink="/create"
+      >
+        <mat-icon>addchart</mat-icon> Create New Estimate
+      </button>
+      <button
+        mat-button
+        class="drawer-btn"
+        routerLinkActive="active"
+        routerLink="/estimate"
+      >
+        <mat-icon>airplay</mat-icon> Estimate Details
+      </button>
+    </mat-expansion-panel>
+    <button
+      mat-button
+      class="drawer-btn"
+      routerLinkActive="active"
+      routerLink="/products"
+    >
+      <mat-icon>local_offer</mat-icon> Products
+    </button>
+  </mat-drawer>
+  <mat-drawer-content class="drawer-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

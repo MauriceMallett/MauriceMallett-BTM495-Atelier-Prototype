@@ -1,0 +1,81 @@
+<section style="padding: 3%; width: 100%">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+      <form (submit)="onSubmit($event)" style="width: 400px">
+        <h1 style="display: block; margin-bottom: 30px">Create Estimate</h1>
+
+        <div class="inputs1">
+          <mat-form-field appearance="outline" style="display: block">
+            <mat-label>First Name</mat-label>
+            <input matInput name="firstName" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="display: block">
+            <mat-label>Last Name</mat-label>
+            <input matInput name="lastName" />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="outline"
+            style="width: 50%; margin-right: 1%; display: inline-block"
+          >
+            <mat-label>Email</mat-label>
+            <input matInput />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="outline"
+            style="width: 49%; display: inline-block"
+          >
+            <mat-label>Phone Number</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          routerLink="/estimate"
+          class="search-btn"
+        >
+          Create
+        </button>
+      </form>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button
+        mat-raised-button
+        color="warn"
+        style="margin-right: 50px"
+        style="position: absolute; top: 150px; left: 0"
+        (click)="addProduct()"
+      >
+        Add Product
+      </button>
+      <mat-accordion style="width: 450px">
+        <mat-expansion-panel *ngFor="let number of products">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Product {{ number }}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div style="display: inline-block">
+            <mat-form-field appearance="fill" style="width: 200px">
+              <mat-label>Product</mat-label>
+              <mat-select>
+                <mat-option value="0"> White Marble ($50 / sqft) </mat-option>
+                <mat-option value="1"> Black Marble ($65 / sqft) </mat-option>
+                <mat-option value="2"> Granite ($55 / sqft) </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field
+              appearance="fill"
+              style="width: 150px; margin-left: 20px"
+            >
+              <mat-label>Quantity (sqft)</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
